@@ -40,7 +40,7 @@ public class NumericToWordUtil {
             Map.entry("19", "Nineteen")
     );
 
-    public static String removeLeadingZeros(String numericValue){
+    private static String removeLeadingZeros(String numericValue){
         int lengthOfNumericValue = numericValue.length();
 
         for(int i = 0; i < lengthOfNumericValue; i++){
@@ -52,7 +52,7 @@ public class NumericToWordUtil {
     }
 
     public static String placeValueReader(String numericValue){
-        String newValue = NumericToWordUtil.removeLeadingZeros(numericValue);
+        String newValue = removeLeadingZeros(numericValue);
 
         int lengthOfNumber = newValue.length();
 
@@ -61,13 +61,13 @@ public class NumericToWordUtil {
         }
 
         return switch(lengthOfNumber) {
-            case 1 -> NumericToWordUtil.readSingleDigit(newValue);
-            case 2 -> NumericToWordUtil.readDoubleDigits(newValue);
-            case 3 -> NumericToWordUtil.readTripleDigits(newValue);
-            case 4, 5, 6 -> NumericToWordUtil.readThousands(newValue);
-            case 7, 8, 9 -> NumericToWordUtil.readMillions(newValue);
-            case 10, 11, 12 -> NumericToWordUtil.readBillions(newValue);
-            case 13, 14, 15 -> NumericToWordUtil.readTrillions(newValue);
+            case 1 -> readSingleDigit(newValue);
+            case 2 -> readDoubleDigits(newValue);
+            case 3 -> readTripleDigits(newValue);
+            case 4, 5, 6 -> readThousands(newValue);
+            case 7, 8, 9 -> readMillions(newValue);
+            case 10, 11, 12 -> readBillions(newValue);
+            case 13, 14, 15 -> readTrillions(newValue);
             default -> "";
         };
     }
