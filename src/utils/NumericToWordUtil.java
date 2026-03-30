@@ -72,7 +72,7 @@ public class NumericToWordUtil {
         };
     }
 
-    public static String readSingleDigit(String value){
+    private static String readSingleDigit(String value){
         if(value == null || value.isBlank()){
             throw new RuntimeException("Class.readSingleDigit-->Cannot read empty value");
         }
@@ -80,7 +80,7 @@ public class NumericToWordUtil {
         return OnesMap.get(value);
     }
 
-    public static String readDoubleDigits(String value){
+    private static String readDoubleDigits(String value){
         if(value == null || value.isBlank()){
             throw new RuntimeException("Class.readDoubleDigits-->Cannot read empty value");
         }
@@ -103,7 +103,7 @@ public class NumericToWordUtil {
         return firstWord + " " + secondWord;
     }
 
-    public static String readTripleDigits(String value){
+    private static String readTripleDigits(String value){
         if(value == null || value.isBlank()){
             throw new RuntimeException("Class.readDoubleDigits-->Cannot read empty value");
         }
@@ -118,7 +118,7 @@ public class NumericToWordUtil {
         return lastWord.isEmpty() ? firstWord + " " + "Hundred" : firstWord + " " + "Hundred and" + " " + lastWord;
     }
 
-    public static String readThousands(String numericValue){
+    private static String readThousands(String numericValue){
         String reversedValue = new StringBuilder(numericValue).reverse().toString();
         String val1 = new StringBuilder(reversedValue.substring(3)).reverse().toString();
         String val2 = new StringBuilder(reversedValue.substring(0, 3)).reverse().toString();
@@ -136,7 +136,7 @@ public class NumericToWordUtil {
         return val1InWords + " Thousand and " + val2InWords;
     }
 
-    public static String readMillions(String numericValue){
+    private static String readMillions(String numericValue){
         String reversedValue = new StringBuilder(numericValue).reverse().toString();
         String val1 = new StringBuilder(reversedValue.substring(6)).reverse().toString();
         String val2 = new StringBuilder(reversedValue.substring(0, 6)).reverse().toString();
@@ -154,7 +154,7 @@ public class NumericToWordUtil {
         return val1InWords + " Million and " + val2InWords;
     }
 
-    public static String readBillions(String numericValue){
+    private static String readBillions(String numericValue){
         String reversedValue = new StringBuilder(numericValue).reverse().toString();
         String val1 = new StringBuilder(reversedValue.substring(9)).reverse().toString();
         String val2 = new StringBuilder(reversedValue.substring(0, 9)).reverse().toString();
@@ -172,7 +172,7 @@ public class NumericToWordUtil {
         return val1InWords + " Billion and " + val2InWords;
     }
 
-    public static String readTrillions(String numericValue){
+    private static String readTrillions(String numericValue){
         String reversedValue = new StringBuilder(numericValue).reverse().toString();
         String val1 = new StringBuilder(reversedValue.substring(12)).reverse().toString();
         String val2 = new StringBuilder(reversedValue.substring(0, 12)).reverse().toString();
