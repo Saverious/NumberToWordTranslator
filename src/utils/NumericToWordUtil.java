@@ -52,6 +52,10 @@ public class NumericToWordUtil {
     }
 
     public static String placeValueReader(String numericValue){
+        if(numericValue.equals("0")) {
+            return "Zero";
+        }
+
         String newValue = removeLeadingZeros(numericValue);
 
         int lengthOfNumber = newValue.length();
